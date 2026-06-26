@@ -25,12 +25,14 @@ A user wants to verify their mobile number. The system generates an OTP, sends i
 - User enters the received OTP.
 - System verifies the OTP.
 - User is successfully verified.
+  
 **Preconditions**
 - Mobile number must be provided.
 - Mobile number format must be valid.
 - User account must exist.
 - OTP expiry time must be configured.
 - SMS provider must be configured.
+
 **Undefined Behavior**
 - OTP store contains corrupted data.
 - SMS provider returns a malformed response.

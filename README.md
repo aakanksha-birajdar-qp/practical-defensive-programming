@@ -19,22 +19,22 @@
 A user wants to verify their mobile number. The system generates an OTP, sends it through an SMS provider, and verifies the OTP entered by the user.
 
 **Defined Behavior**
--User enters mobile number.
--System generates a 6-digit OTP.
--System sends the OTP through an SMS provider.
--User enters the received OTP.
--System verifies the OTP.
--User is successfully verified.
+- User enters mobile number.
+- System generates a 6-digit OTP.
+- System sends the OTP through an SMS provider.
+- User enters the received OTP.
+- System verifies the OTP.
+- User is successfully verified.
 **Preconditions**
--Mobile number must be provided.
--Mobile number format must be valid.
--User account must exist.
--OTP expiry time must be configured.
--SMS provider must be configured.
+- Mobile number must be provided.
+- Mobile number format must be valid.
+- User account must exist.
+- OTP expiry time must be configured.
+- SMS provider must be configured.
 **Undefined Behavior**
--OTP store contains corrupted data.
--SMS provider returns a malformed response.
--Unexpected OTP format is received.
+- OTP store contains corrupted data.
+- SMS provider returns a malformed response.
+- Unexpected OTP format is received.
 
 ## Description
 

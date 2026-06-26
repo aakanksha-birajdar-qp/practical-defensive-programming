@@ -13,30 +13,103 @@
 - External Intervention
 - Centralized Error Handling
 
-**Project 1: OTP Verification System**
-1>Problem Statement
+## **Project 1:  OTP Verification System**
 
-A user wants to verify their mobile number. The system generates an OTP, sends it through an SMS provider, and verifies the OTP entered by the user.
+### **Problem Statement**
 
-**Defined Behavior**
-- User enters mobile number.
-- System generates a 6-digit OTP.
-- System sends the OTP through an SMS provider.
-- User enters the received OTP.
-- System verifies the OTP.
-- User is successfully verified.
-  
-**Preconditions**
-- Mobile number must be provided.
-- Mobile number format must be valid.
-- User account must exist.
-- OTP expiry time must be configured.
-- SMS provider must be configured.
+A user wants to verify their mobile number. The system generates a One-Time Password (OTP), sends it through an SMS provider, and verifies the OTP entered by the user before successfully verifying the mobile number.
 
-**Undefined Behavior**
-- OTP store contains corrupted data.
-- SMS provider returns a malformed response.
-- Unexpected OTP format is received.
+### **Defined Behavior**
+
+* User enters a mobile number.
+* System validates the mobile number.
+* System generates a 6-digit OTP.
+* System sends the OTP through an SMS provider.
+* System stores the generated OTP temporarily.
+* User enters the received OTP.
+* System verifies the entered OTP against the stored OTP.
+* User is successfully verified.
+
+### **Preconditions**
+
+* Mobile number must be provided.
+* Mobile number format must be valid.
+* User account must exist.
+* OTP expiry time must be configured.
+* SMS provider must be configured and available.
+
+### **Undefined Behavior**
+
+* OTP store contains corrupted data.
+* SMS provider returns a malformed response.
+* Unexpected OTP format is received.
+* OTP data is missing or becomes inconsistent.
+* OTP verification request contains unexpected or invalid data.
+
+## **Project 2: Background Job Processing**
+
+### **Problem Statement**
+
+A user requests report generation. The system creates a background job, generates the report, stores the generated report, and returns the processing result while applying defensive programming techniques.
+
+### **Defined Behavior**
+
+* User requests report generation.
+* System validates the request.
+* System creates a background job.
+* System generates the report.
+* System saves the generated report.
+* System marks the job as completed.
+* System returns a successful response.
+
+### **Preconditions**
+
+* Report name must be provided.
+* Job request must be valid.
+* User must be authorized.
+* Report generation service must be available.
+* Storage location must be configured.
+
+### **Undefined Behavior**
+
+* Report data becomes corrupted.
+* External PDF service returns a malformed response.
+* Storage service returns an unexpected data type.
+* Generated report file is missing after successful generation.
+* Job metadata becomes corrupted.
+
+---
+
+## **Project 3: Authentication System**
+
+### **Problem Statement**
+
+A user wants to log in using an email and password. The system validates the user credentials and grants access to authorized users.
+
+### **Defined Behavior**
+
+* User enters email and password.
+* System validates the input.
+* System verifies that the user exists.
+* System validates the password.
+* System generates an authentication token.
+* User is successfully authenticated.
+
+### **Preconditions**
+
+* Email must be provided.
+* Password must be provided.
+* Email format must be valid.
+* User account must exist.
+* Authentication service must be available.
+
+### **Undefined Behavior**
+
+* User data is corrupted.
+* Invalid email data type is received.
+* Password field is missing from the user record.
+* Authentication service returns a malformed response.
+* User record contains incomplete or inconsistent data.
 
 ## Description
 

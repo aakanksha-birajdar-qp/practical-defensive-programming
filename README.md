@@ -46,6 +46,27 @@ A user wants to verify their mobile number. The system generates a One-Time Pass
 * OTP data is missing or becomes inconsistent.
 * OTP verification request contains unexpected or invalid data.
 
+## Edge Cases
+
+1. User account does not exist.
+2. Mobile number is not registered.
+3. Invalid mobile number format is provided.
+4. Mobile number contains only whitespace.
+5. Mobile number is `null`, `undefined`, or an invalid data type.
+6. Mobile number exceeds the maximum allowed length.
+7. OTP entered is incorrect.
+8. OTP has expired.
+9. OTP has already been used.
+10. OTP configuration (length or expiry time) is missing or invalid.
+11. Maximum OTP verification attempts are exceeded.
+12. Multiple OTP generation requests are received simultaneously.
+13. Multiple OTP verification requests are received simultaneously.
+14. Network interruption occurs while sending or verifying the OTP.
+15. Database or OTP store is unavailable during OTP generation or verification.
+16. OTP request rate limit is exceeded.
+17. SMS provider is temporarily unavailable.
+
+
 ## **Project 2: Background Job Processing**
 
 ### **Problem Statement**
@@ -77,6 +98,23 @@ A user requests report generation. The system creates a background job, generate
 * Storage service returns an unexpected data type.
 * Generated report file is missing after successful generation.
 * Job metadata becomes corrupted.
+
+## Edge Cases
+
+1. Unauthorized user request.
+2. Missing report name.
+3. Invalid report input.
+4. Report name too long.
+5. Duplicate report requests.
+6. Background job failure.
+7. Maximum retry exceeded.
+8. External service unavailable.
+9. Database connection failure.
+10. Insufficient storage space.
+11. Network interruption occurred.
+12. Multiple worker execution.
+13. Worker process crashed.
+14. Job request rate exceeded.
 
 ---
 
@@ -110,6 +148,23 @@ A user wants to log in using an email and password. The system validates the use
 * Password field is missing from the user record.
 * Authentication service returns a malformed response.
 * User record contains incomplete or inconsistent data.
+
+## Edge Cases
+
+1. User does not exist.
+2. Incorrect password entered.
+3. Too many login attempts.
+4. User account is temporarily locked after the maximum failed login attempts.
+5. Email or password contains only whitespace.
+6. Email or password is `null`, `undefined`, or an invalid data type.
+7. Email or password exceeds the maximum allowed length.
+8. Duplicate login requests are received simultaneously.
+9. Database connection is unavailable during authentication.
+10. Existing JWT is used after the user changes their password.
+11. SQL injection or malicious input is received.
+12. Multiple active sessions are created unexpectedly due to concurrent logins.
+13. Network interruption occurs during the authentication process.
+
 
 ## Description
 
